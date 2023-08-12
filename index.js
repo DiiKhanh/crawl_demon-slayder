@@ -6,8 +6,8 @@ require('dotenv/config');
 const app = express();
 const axios = require('axios');
 
-const url = process.env.URL_CRAWL;
-const url_character = process.env.URL_CHARACTER;
+const url = 'https://kimetsu-no-yaiba.fandom.com/wiki/Kimetsu_no_Yaiba_Wiki';
+const url_character = 'https://kimetsu-no-yaiba.fandom.com/wiki/';
 
 app.use(cors());
 app.use(express.json({ limit: '50mb'} ));
@@ -28,7 +28,7 @@ app.get('/api/v1', (req, res) => {
         const image = $(this).find('a > img').attr('data-src');
         listCharacter.push({
           name,
-          url: 'http://localhost:8080/api/v1' + url.split('/wiki')[1],
+          url: 'https://demon-slayder-api-crawl.onrender.com/api/v1' + url.split('/wiki')[1],
           image
         });
     })
